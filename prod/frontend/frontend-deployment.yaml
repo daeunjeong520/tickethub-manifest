@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: tickethub
+    tier: frontend
+  name: frontend-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: tickethub
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        app: tickethub
+        tier: frontend
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                - key: tier
+                  operator: In
+                  values:
+                  - frontend
+      containers:
+        - image: dasaroi/ticket-frontend:1.0
+          name: frontend-container
+          ports:
+          - containerPort: 3000
