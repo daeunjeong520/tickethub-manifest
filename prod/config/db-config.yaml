@@ -3,6 +3,6 @@ kind: ConfigMap
 metadata:
   name: db-config
 data:
-  url: jdbc:mysql://tickethub-db.cluster-cjqy6kaoknja.ap-northeast-2.rds.amazonaws.com:3306/tickethub_db?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8 
-  username: admin
-  password: Amazon1!
+  url: ####
+  username: ####
+  password: ####
